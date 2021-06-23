@@ -17,6 +17,15 @@ const stagger = {
   }
 }
 
+const delaystagger = {
+  animate: {
+    transition:{
+      staggerChildren:0.1,
+      delayChildren: 0.5
+    }
+  }
+}
+
 const easing = [0.6, -0.05, 0.01, 0.99]
 
 const fadein = {
@@ -47,11 +56,17 @@ export default function Home({ allPostsData }) {
     <motion.div exit={{opacity:0}} initial='initial' animate='animate'>
     <div className = {Styles.big_container}>
       <div className = {Styles.navbar_container}>
-        <motion.ul variants={stagger} className = {Styles.ul}>
+        <motion.ul variants={delaystagger} className = {Styles.ul}>
           <motion.div variants={fadein}>
           <li className={Styles.navbar_items}>projects</li>
+          </motion.div>
+          <motion.div variants={fadein}>
           <li className={Styles.navbar_items}>blogs</li>
+          </motion.div>
+          <motion.div variants={fadein}>
           <li className={Styles.navbar_items}>about me</li>
+          </motion.div>
+          <motion.div variants={fadein}>
           <li className={Styles.navbar_items}>contact</li>
           </motion.div>
         </motion.ul>
@@ -62,7 +77,11 @@ export default function Home({ allPostsData }) {
           <title>{siteTitle}</title>
         </Head>
         <section className={`${utilStyles.heading2Xl} ${Styles.h2_intro}`}>
-          <p>Graphic Designer that does work in interactive design and paint</p>
+          <motion.div variants={stagger}>
+          <motion.p variants={fadein}>Graphic Designer that</motion.p >
+          <motion.p variants={fadein}> does work in interactive</motion.p >
+          <motion.p variants={fadein}> design and paint</motion.p >
+          </motion.div>
           {/* <br></br>
           <p>I'm a Data Scientist</p> */}
           {/* <p>
