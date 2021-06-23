@@ -24,7 +24,7 @@
         font-size: 20px;
         position: relative;
         background: linear-gradient(black, black) var(--p,0%) 57%/var(--p,0%) 1px no-repeat;
-
+        letter-spacing: 0.5px;
     }
 }
 
@@ -50,8 +50,11 @@
 
 .line{
     height: 3px;
-    width: 0%;
+    width: 100%;
     border-radius: 5px;
     background-color: black;
-    transition: 1s ease-in-out;
+}
+
+.blog{
+    padding-top: 150px;
 }
