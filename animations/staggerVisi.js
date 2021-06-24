@@ -9,19 +9,29 @@ export default function StaggerWhenVisible({ children }) {
     useEffect(() => {
       if (inView) {
         controls.start("visible");
+      } else {
+        controls.start("hidden");
       }
     }, [controls, inView]);
+
+    const variants = {
+      visible:{
+        transition:{
+            staggerChildren:0.1,
+            delayChildren: 0.5
+        }
+      },
+      hidden:{
+        y:0
+      }
+    }
   
     return (
       <motion.div
         ref={ref}
         animate={controls}
-        transition={{ staggerChildren: 0.1 }}
-        initial = "hidden"
-        variants={{
-            visible: { opacity: 1 },
-            hidden: { opacity: 0 }
-        }}
+        initial="hidden"
+        variants={variants}
       >
         {children}
       </motion.div>

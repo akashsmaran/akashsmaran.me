@@ -28,7 +28,7 @@ export const fadein = {
       y:0,
       opacity:1,
       transition:{
-          duration: .9,
+          duration: 1.5,
           ease: easing
       }
   }

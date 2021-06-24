@@ -46,9 +46,9 @@ export default function Home({ allPostsData }) {
         </Head>
         <section className={`${utilStyles.heading2Xl} ${Styles.h2_intro}`}>
           <motion.div variants={stagger}>
-          <motion.p variants={fadein}>Graphic Designer that</motion.p >
-          <motion.p variants={fadein}> does work in interactive</motion.p >
-          <motion.p variants={fadein}> design and paint</motion.p >
+          <motion.p variants={fadein}>Hi! I am Akash Majety.</motion.p >
+          <motion.p variants={fadein}> I am currently a Master's</motion.p >
+          <motion.p variants={fadein}> student at Cornell Tech</motion.p >
           </motion.div>
           {/* <br></br>
           <p>I'm a Data Scientist</p> */}
@@ -61,28 +61,31 @@ export default function Home({ allPostsData }) {
       <FadeInWhenVisible>
         <div className={Styles.line}></div>
       </FadeInWhenVisible>
+      
+        <div className={Styles.blog}>
+          
+          
+            <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+              {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
+              <ul className={utilStyles.list}>
+              
+                {allPostsData.map(({ id, date, title }) => ( 
+                  <FadeInWhenVisible>
+                  <li className={utilStyles.listItem} key={id}>
+                  <Link href={`/posts/${id}`} key={id}>
+                    <a key={id}>{title}</a>
+                  </Link>
+                  <br />
+                  <small className={utilStyles.lightText} key={id}>
+                    <Date dateString={date} />
+                  </small>
+                  </li>
 
-      <FadeInWhenVisible>
-      <div className={Styles.blog}>
-          <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
-            <ul className={utilStyles.list}>
-              {allPostsData.map(({ id, date, title }) => (
-                <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>
-                  <a>{title}</a>
-                </Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-              </li>
-              ))}
-            </ul>
-          </section>
+                  </FadeInWhenVisible>
+                ))}
+              </ul>
+            </section>
         </div>
-        </FadeInWhenVisible>
-
       </div>
     </div>
     </motion.div>
