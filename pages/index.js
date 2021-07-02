@@ -12,6 +12,12 @@ import {stagger,delaystagger,fadein} from "../animations/animations_utils"
 import Timeline from '../components/Timeline'
 import Image from 'next/image'
 
+//gsap
+import React, { useEffect } from "react";
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
@@ -20,7 +26,7 @@ export async function getStaticProps() {
     }
   }
 }
-
+  
 const itemsArray = [
   {
     "title": "Humaine Technologies",
@@ -42,6 +48,66 @@ const itemsArray = [
 const m = 0;
 
 export default function Home({ allPostsData }) {
+  const animateFromTo = (elem, direction) => {
+    const offset = 300;
+    let x = 0;
+    let y = direction * offset;
+
+    direction = direction | 1;
+
+    if (elem.classList.contains("slide_from_left")) {
+      x = -offset;
+      y = 0;
+    } else if (elem.classList.contains("slide_from_right")) {
+      x = offset;
+      y = 0;
+    } else if (elem.classList.contains("slide_from_top")){
+      x = 0
+      y = offset;
+    }
+
+    gsap.fromTo(
+      elem,
+      { xPercent: x, yPercent: y, autoAlpha: 0},
+      {
+        duration: 1.25,
+        xPercent: 0,
+        yPercent: 0,
+        autoAlpha: 1,
+        ease: "easeOut",
+        overwrite: "auto",
+      }
+    );
+  };
+
+  const hide = (elem) => {
+    gsap.set(elem, { autoAlpha: 0 });
+  };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".animate").forEach(function (elem) {
+      hide(elem);
+
+      ScrollTrigger.create({
+        trigger: elem,
+        once: true,
+        start: "top 85%",
+        end:"+=20",
+        onEnter: function () {
+          animateFromTo(elem);
+        },
+        onEnterBack: function () {
+            animateFromTo(elem,-1);
+        },
+        // onLeave: function () {
+        //   hide(elem);
+        // },
+      });
+    });
+  }, []);
+
   return (
     <motion.div exit={{opacity:0}} initial='initial' animate='animate'>
     <div className = {Styles.big_container}>
@@ -109,19 +175,19 @@ export default function Home({ allPostsData }) {
                   // </li>
                   <div className={idx%2==0 ? Styles.left_project_wrap : Styles.right_project_wrap}>
                     <div className={idx%2==0 ? Styles.left_project_headline : Styles.right_project_headline}>
-                      <h3>{title}</h3>
+                      <h3 className={`animate ${idx%2==0 ? "slide_from_top" : "slide_from_top"}`}>{title}</h3>
                     </div>
                     <div className={idx%2==0 ? Styles.left_line_container : Styles.right_line_container}>
-                      <div className={Styles.line}></div>
+                      <div className={`animate ${Styles.line} ${idx%2==0 ? "slide_from_left" : "slide_from_right"}`}></div>
                     </div>
                     <div className={idx%2==0 ? Styles.left_project_pic : Styles.right_project_pic}>
                       <img
                         src={img}
-                        className="img"
+                        className={`animate ${idx%2==0 ? "slide_from_right" : "slide_from_left"}`}
                       />
                     </div>
-                    <div className={idx%2==0 ? Styles.left_project_text: Styles.right_project_text}>
-                      <p>{description}</p>
+                    <div className={idx%2==0 ? Styles.left_project_text : Styles.right_project_text}>
+                      <p className={`animate ${idx%2==0 ? "slide_from_left" : "slide_from_right"}`}>{description}</p>
                     </div>
                   </div>
                 ))}

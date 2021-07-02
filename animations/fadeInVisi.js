@@ -4,7 +4,9 @@ import React, { useEffect } from "react";
 
 export default function FadeInWhenVisible({ children }) {
     const controls = useAnimation();
-    const [ref, inView] = useInView();
+    const [ref, inView] = useInView({
+      threshold:0.6
+    });
 
     useEffect(() => {
       if (inView) {

@@ -7,7 +7,7 @@ const Timeline = (props) => {
   const { items } = props;
   
   const animateFromTo = (elem, direction) => {
-    const offset = 1000;
+    const offset = 1;
     let x = 0;
     let y = direction * offset;
 
