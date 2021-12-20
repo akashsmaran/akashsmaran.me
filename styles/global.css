@@ -3,7 +3,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Europa;
+  font-family: 'Europa', sans-serif;
   background-color: #F6F3EF;
   color: #0E0900;
   scroll-behavior: smooth;
