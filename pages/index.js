@@ -10,7 +10,7 @@ import StaggerWhenVisible from '../animations/staggerVisi'
 import { motion, useAnimation } from "framer-motion";
 import {stagger,delaystagger,fadein} from "../animations/animations_utils"
 import Timeline from '../components/Timeline'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Sound from '../components/Sound'
 
 // import useSound from 'use-sound';
@@ -89,19 +89,6 @@ export default function Home({ allPostsData }) {
   const hide = (elem) => {
     gsap.set(elem, { autoAlpha: 0 });
   };
-
-  const itemsArray = [
-    {
-      "title": "",
-      "description": "Humaine is a conversational AI platform that generates virtual patients for the use and deliberate practice of medical students in both high and low resource settings. Students login online or via a smartphone app to access virtual patients with varying medical conditions, and practice with these patients at will.",
-      "img": "/images/humaine1.png",
-    },
-    {
-      "title": "UNICEF",
-      "description": "Humaine is a conversational AI platform that generates virtual patients for the use and deliberate practice of medical students in both high and low resource settings. Students login online or via a smartphone app to access virtual patients with varying medical conditions, and practice with these patients at will.",
-      "img": "/images/unicef.png",
-    }
-  ];
 
   useEffect(() => {
     // window.sessionStorage.setItem("hasAnimationPlayed", "true");
