@@ -301,7 +301,7 @@ export default function Home({ allPostsData }) {
                 <a href="https://github.com/akashsmaran" class="fa fa-github"></a> 
                 <a href="https://www.linkedin.com/in/akashsmaran/" class="fa fa-linkedin"></a>
                 <a href="https://twitter.com/akashsmaran" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-google"></a>
+                <a href="mailto:akashsmaran@gmail.com" class="fa fa-envelope"></a>
               </div>
             </div>
         </div>
