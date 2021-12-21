@@ -94,24 +94,28 @@ export default function Home({ allPostsData }) {
     // window.sessionStorage.setItem("hasAnimationPlayed", "true");
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray(".animate").forEach(function (elem) {
-      hide(elem);
-
-      ScrollTrigger.create({
-        trigger: elem,
-        once: true,
-        start: "top 85%",
-        end:"+=20",
-        onEnter: function () {
-          animateFromTo(elem);
-        },
-        onEnterBack: function () {
-            animateFromTo(elem,-1);
-        },
-        // onLeave: function () {
-        //   hide(elem);
-        // },
-      });
+    ScrollTrigger.matchMedia({
+      '(min-width: 720px)': () => {
+        gsap.utils.toArray(".animate").forEach(function (elem) {
+          hide(elem);
+    
+          ScrollTrigger.create({
+            trigger: elem,
+            once: true,
+            start: "top 85%",
+            end:"+=20",
+            onEnter: function () {
+              animateFromTo(elem);
+            },
+            onEnterBack: function () {
+                animateFromTo(elem,-1);
+            },
+            // onLeave: function () {
+            //   hide(elem);
+            // },
+          });
+        });
+      }
     });
   }, []);
 
