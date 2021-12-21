@@ -146,7 +146,6 @@ export default function Home({ allPostsData }) {
         <div className = {Styles.Intro_container}>
           <Head>
             <title>{siteTitle}</title>
-            <link href="//db.onlinewebfonts.com/c/23c0fcab84d99da0de762de7e220a6e1?family=Europa" rel="stylesheet" type="text/css"/>
           </Head>
           <section className={`${utilStyles.heading2Xl} ${Styles.h2_intro}`}>
             <motion.div variants={stagger}>

@@ -1,9 +1,8 @@
-@import url("//db.onlinewebfonts.com/c/23c0fcab84d99da0de762de7e220a6e1?family=Europa");
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Europa', sans-serif;
+  font-family: 'Europa', 'Inter', sans-serif;
   background-color: #F6F3EF;
   color: #0E0900;
   scroll-behavior: smooth;
