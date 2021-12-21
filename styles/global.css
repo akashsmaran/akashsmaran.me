@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Europa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Europa'), url('/fonts/europa.woff') format('woff2');
+}
+
 html,
 body {
   padding: 0;
