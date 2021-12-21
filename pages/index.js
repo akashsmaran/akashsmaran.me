@@ -13,6 +13,7 @@ import Timeline from '../components/Timeline'
 // import Image from 'next/image'
 import Sound from '../components/Sound'
 
+
 // import useSound from 'use-sound';
 
 // import boopSfx from '../public/sounds/wooden.mp3';
@@ -102,6 +103,7 @@ export default function Home({ allPostsData }) {
           ScrollTrigger.create({
             trigger: elem,
             once: true,
+            //#TODO : Change to 85%
             start: "top 85%",
             end:"+=20",
             onEnter: function () {
@@ -139,7 +141,9 @@ export default function Home({ allPostsData }) {
             </li>
             </motion.div>
             <motion.div variants={fadein}>
-            <li className={Styles.navbar_items}>about me</li>
+            <li className={Styles.navbar_items}>
+              <a href="#about_me">about me</a>
+            </li>
             </motion.div>
             <motion.div variants={fadein}>
             <li className={Styles.navbar_items}>contact</li>
@@ -239,6 +243,7 @@ export default function Home({ allPostsData }) {
           </div>
           <p className={Styles.subheading}><i>Publications</i></p>
           <br></br>
+          
           <div className={Styles.research_container}>
             <div className={Styles.research_item}>
               <ul>
@@ -273,7 +278,34 @@ export default function Home({ allPostsData }) {
           </ul>
         </div>
         
-    
+
+        <div className={`animate slide_from_top ${Styles.about_wrap}`} id="about_me">
+          <div className={Styles.p_header}>
+            <div className={Styles.line2}></div>
+            <br></br>
+            <h2 className={Styles.experiences}>About Me</h2> 
+          </div>
+        </div>
+        <div className={Styles.about_me}>
+            <div className={Styles.left_project_pic}>
+              <img
+                src='/images/AkashSmaranM.png'
+                className={`animate slide_from_right`}
+              />
+            </div>
+            <div className={Styles.left_project_text}>
+              <p className={`animate slide_from_left`}>I am a currently pursuing a Dual Masters from Cornell University and Technion Institute of Technology in the fields of Information Science and Applied Information Systems. 
+              I have experience across research, software development, entreprenuership, and leadership. </p>
+              <br/>
+              <div class="social-icons">
+                <a href="https://github.com/akashsmaran" class="fa fa-github"></a> 
+                <a href="https://www.linkedin.com/in/akashsmaran/" class="fa fa-linkedin"></a>
+                <a href="https://twitter.com/akashsmaran" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+              </div>
+            </div>
+        </div>
+        <br/>
     </div>
     
     </motion.div>
